@@ -7,7 +7,7 @@ import datetime
 import time
 
 def send_message(script_code, params=None,reason=None, comment=None,ip=None,machine_nickname=None):
-    data = """{"script_code":"%s", "params":"%s","reason":"%s","comment":"%s","ip":"%s","machine_nickname":"%s"}""" % (script_code, params, reason, comment, ip, machine_nickname)
+    data = """{"script_code":"%d", "params":"%s","reason":"%s","comment":"%s","ip":"%s","machine_nickname":"%s"}""" % (script_code, params, reason, comment, ip, machine_nickname)
     insert = requests.post('http://0.0.0.0:7007/push', data=data)
     status = json.loads(insert.content)['result']['status']
     token = json.loads(insert.content)['result']['token']
