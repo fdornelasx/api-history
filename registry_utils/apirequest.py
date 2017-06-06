@@ -12,12 +12,13 @@ def send_message(script_code, params=None,reason=None, comment=None,ip=None,mach
     status = json.loads(insert.content)['result']['status']
     token = json.loads(insert.content)['result']['token']
     
-    tz = pytz.timezone('America/Sao_Paulo')
-    timestamptz = datetime.datetime.now(tz=tz)
     
     def send_message_decorator(func):
         @wraps(func)
         def decorated(*args, **kwargs):
+            tz = pytz.timezone('America/Sao_Paulo')
+            timestamptz = datetime.datetime.now(tz=tz)
+            
             URL_update = "http://0.0.0.0:7007/update"
             try:
                 f = func(*args, **kwargs)
