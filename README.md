@@ -12,11 +12,17 @@ te projeto é um decorator que registra a execução de todos os scripts python
 ```
 ### Usando o projeto
 
+
+Lembre-se de exportar a variável de ambiente onde a API está rodando
+
+```
+export API_ENDPOINT = http://API_ENDPOINT_aqui:porta
+```
+
+
 No seu arquivo requirements.txt do python, você deverá colocar assim:
 
 ```
-pytz==2017.2
-requests==2.17.3
 -e git+https://github.com/fillipedornelas/api-history.git#egg=apihistory
 ```
 
